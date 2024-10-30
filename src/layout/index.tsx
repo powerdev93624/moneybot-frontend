@@ -23,7 +23,7 @@ const contentStyle: React.CSSProperties = {
 
 const layoutStyle: React.CSSProperties = {
   overflow: "hidden",
-  margin: "0px 5vw",
+  margin: "0px 12px 64px",
   backgroundColor: "#f5f5f5"
 };
 const AppLayout = () => {

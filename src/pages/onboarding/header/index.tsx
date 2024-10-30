@@ -11,26 +11,25 @@ const Header = () => {
   const dispatch = useDispatch();
   const { currentOnboardingStep } = useSelector((state: any) => state.app);
   const handleReturn = () => {
-    if(currentOnboardingStep > 1) {
+    if (currentOnboardingStep > 1) {
       dispatch(setCurrentOnboardingStep(currentOnboardingStep - 1));
     } else {
       navigate("/");
     }
-    
   };
   return (
     <Flex
       justify="flex-start"
       align="center"
-      gap="5px"
+      gap="8px"
       style={{
         fontSize: "20px",
         fontWeight: "bold",
-        width: "600px",
+        width: "100%",
         padding: "15px 0px",
       }}
     >
-      <Button type="link" onClick={handleReturn}>
+      <Button type="link" onClick={handleReturn} style={{ padding: 0 }}>
         <LeftOutlined style={{ color: GREEN_COLOR }} />
       </Button>
       <img src={BotIcon} width="30px" />

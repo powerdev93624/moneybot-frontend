@@ -9,7 +9,7 @@ const OnboardingStep: React.FC = () => {
   console.log(currentOnboardingStep);
 
   return (
-    <Flex justify="space-between" align="center" style={{ width: "350px" }}>
+    <Flex justify="space-between" align="center" style={{ width: "90%" }}>
       {onboardingStepArray.map((step_number, index) => {
         return (
           <Flex

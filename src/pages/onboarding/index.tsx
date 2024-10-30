@@ -12,13 +12,14 @@ const Onboarding: React.FC = () => {
   const { currentOnboardingStep } = useSelector((state: any) => state.app);
 
   return (
-    <Flex justify="center">
+    <Flex justify="center" style={{padding: 0}}>
       <Flex
         vertical
         justify="space-between"
         align="center"
         gap="50px"
-        style={{ marginBottom: "50px" }}
+        style={{ width: "450px", margin: "0 10px 50px" }}
+        className="full-mobile"
       >
         <Header />
         <OnboardingStep />
@@ -29,7 +30,7 @@ const Onboarding: React.FC = () => {
             padding: "32px",
             borderRadius: "10px",
             borderBottom: "3px solid #eee",
-            width: "400px",
+            width: "95%",
           }}
           align="center"
         >
