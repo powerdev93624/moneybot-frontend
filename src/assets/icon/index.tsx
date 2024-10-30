@@ -5,6 +5,10 @@ import BotIcon from "@/assets/icon/boticon.svg";
 import BankIcon from "@/assets/icon/bank.svg";
 import LockIcon from "@/assets/icon/lock.svg";
 import SecurityIcon from "@/assets/icon/security.svg";
+import DaveramseyIcon from "@/assets/icon/daveramsey.svg";
+import JohnbogleIcon from "@/assets/icon/johnbogle.svg";
+import WarrenbuffetIcon from "@/assets/icon/warrenbuffet.svg";
+import MyownadvisorIcon from "@/assets/icon/myownadvisor.svg";
 
 export {
   TextBasedAdviceIcon,
@@ -13,5 +17,9 @@ export {
   BotIcon,
   BankIcon,
 	LockIcon,
-	SecurityIcon
+	SecurityIcon,
+  DaveramseyIcon,
+  JohnbogleIcon,
+  WarrenbuffetIcon,
+  MyownadvisorIcon
 };

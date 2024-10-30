@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Button, Flex} from "antd";
+import { Button, Flex } from "antd";
 import { GREEN_COLOR, LIGHT_GREEN_COLOR } from "@/constants";
 import PrimaryGoal from "./primarygoal";
 import Challenge from "./challenge";
@@ -9,23 +9,12 @@ import Situation from "./situation";
 import FinancialGoal from "./financialgoal";
 import { setCurrentSurveyStep } from "@/store/slices/AppSlice";
 
-
 const Survery: React.FC = () => {
   const { currentSurveyStep } = useSelector((state: any) => state.app);
   const dispatch = useDispatch();
   const surveyStepArray = [1, 2, 3, 4, 5];
   return (
-    <Flex
-      vertical
-      style={{
-        backgroundColor: "#fefefe",
-        padding: "32px",
-        borderRadius: "10px",
-        borderBottom: "3px solid #eee",
-        width: "400px",
-      }}
-      align="center"
-    >
+    <>
       {currentSurveyStep === 1 ? (
         <PrimaryGoal />
       ) : currentSurveyStep === 2 ? (
@@ -46,11 +35,11 @@ const Survery: React.FC = () => {
         <Button
           type="link"
           style={{ color: "#4B5563", padding: 0 }}
-          disabled={currentSurveyStep < 2 }
+          disabled={currentSurveyStep < 2}
           onClick={() => {
-            if(currentSurveyStep > 1) {
+            if (currentSurveyStep > 1) {
               dispatch(setCurrentSurveyStep(currentSurveyStep - 1));
-            }             
+            }
           }}
         >
           Back
@@ -74,7 +63,7 @@ const Survery: React.FC = () => {
           })}
         </Flex>
       </Flex>
-    </Flex>
+    </>
   );
 };
 

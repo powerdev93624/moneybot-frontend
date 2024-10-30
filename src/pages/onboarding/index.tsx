@@ -6,9 +6,10 @@ import SignUp from "./signup";
 import OnboardingStep from "./onboardingStep";
 import LinkBank from "./linkbank";
 import Survery from "./survey";
+import Advisor from "./advisor";
 
 const Onboarding: React.FC = () => {
-  const {currentOnboardingStep} = useSelector((state:any) => state.app);
+  const { currentOnboardingStep } = useSelector((state: any) => state.app);
 
   return (
     <Flex justify="center">
@@ -21,13 +22,27 @@ const Onboarding: React.FC = () => {
       >
         <Header />
         <OnboardingStep />
-        {currentOnboardingStep === 1 ? (
-          <SignUp />
-        ) : currentOnboardingStep === 2 ? (
-          <LinkBank />
-        ) : (
-          <Survery />
-        )}
+        <Flex
+          vertical
+          style={{
+            backgroundColor: "#fefefe",
+            padding: "32px",
+            borderRadius: "10px",
+            borderBottom: "3px solid #eee",
+            width: "400px",
+          }}
+          align="center"
+        >
+          {currentOnboardingStep === 1 ? (
+            <SignUp />
+          ) : currentOnboardingStep === 2 ? (
+            <LinkBank />
+          ) : currentOnboardingStep === 3 ? (
+            <Advisor />
+          ) : (
+            <Survery />
+          )}
+        </Flex>
       </Flex>
     </Flex>
   );

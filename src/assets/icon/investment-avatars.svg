@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <!-- Warren Buffet - Value Investing Avatar -->
+  <g transform="translate(0, 0)">
+    <circle cx="100" cy="100" r="70" fill="#e6f3e6"/>
+    <!-- Newspaper and magnifying glass symbolizing research -->
+    <rect x="70" y="80" width="40" height="50" fill="#4CAF50"/>
+    <circle cx="120" cy="70" r="20" fill="none" stroke="#2E7D32" stroke-width="4"/>
+    <line x1="135" y1="85" x2="150" y2="100" stroke="#2E7D32" stroke-width="4"/>
+    <!-- Value text -->
+    <text x="100" y="150" font-family="Arial" font-size="12" fill="#2E7D32" text-anchor="middle">VALUE</text>
+  </g>
+
+  <!-- John Bogle - Index Fund Avatar -->
+  <g transform="translate(200, 0)">
+    <circle cx="100" cy="100" r="70" fill="#E3F2FD"/>
+    <!-- Index chart representation -->
+    <path d="M50 120 L80 90 L110 100 L150 70" stroke="#1976D2" stroke-width="4" fill="none"/>
+    <path d="M50 140 L150 140" stroke="#1976D2" stroke-width="2"/>
+    <!-- Small dots representing diversification -->
+    <circle cx="80" cy="90" r="4" fill="#1976D2"/>
+    <circle cx="110" cy="100" r="4" fill="#1976D2"/>
+    <circle cx="60" cy="110" r="4" fill="#1976D2"/>
+    <circle cx="130" cy="80" r="4" fill="#1976D2"/>
+    <text x="100" y="150" font-family="Arial" font-size="12" fill="#1976D2" text-anchor="middle">INDEX</text>
+  </g>
+
+  <!-- Dave Ramsey - Debt Free Avatar -->
+  <g transform="translate(400, 0)">
+    <circle cx="100" cy="100" r="70" fill="#FBE9E7"/>
+    <!-- Broken chain symbolizing freedom from debt -->
+    <path d="M70 100 L85 100" stroke="#D84315" stroke-width="6"/>
+    <path d="M115 100 L130 100" stroke="#D84315" stroke-width="6"/>
+    <circle cx="95" cy="100" r="8" fill="none" stroke="#D84315" stroke-width="4"/>
+    <circle cx="105" cy="100" r="8" fill="none" stroke="#D84315" stroke-width="4"/>
+    <!-- Lightning bolt for energy -->
+    <path d="M90 70 L110 90 L95 105 L115 130" stroke="#D84315" stroke-width="4" fill="none"/>
+    <text x="100" y="150" font-family="Arial" font-size="12" fill="#D84315" text-anchor="middle">DEBT-FREE</text>
+  </g>
+
+  <!-- Write Your Own Avatar -->
+  <g transform="translate(600, 0)">
+    <circle cx="100" cy="100" r="70" fill="#F3E5F5"/>
+    <!-- Pencil and path symbolizing creating your own way -->
+    <path d="M60 120 C80 80, 120 140, 140 80" stroke="#7B1FA2" stroke-width="4" fill="none" stroke-dasharray="5,5"/>
+    <path d="M70 90 L120 90 L110 80 L120 90 L110 100" fill="none" stroke="#7B1FA2" stroke-width="3"/>
+    <!-- Compass points -->
+    <circle cx="100" cy="100" r="25" fill="none" stroke="#7B1FA2" stroke-width="2"/>
+    <path d="M100 80 L100 120 M80 100 L120 100" stroke="#7B1FA2" stroke-width="2"/>
+    <text x="100" y="150" font-family="Arial" font-size="12" fill="#7B1FA2" text-anchor="middle">CUSTOM</text>
+  </g>
+</svg>

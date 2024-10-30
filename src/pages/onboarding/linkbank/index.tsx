@@ -8,23 +8,13 @@ import { setCurrentOnboardingStep } from "@/store/slices/AppSlice";
 const { Title } = Typography;
 
 const LinkBank: React.FC = () => {
-  const {currentOnboardingStep} = useSelector((state:any) => state.app);
+  const { currentOnboardingStep } = useSelector((state: any) => state.app);
   const dispatch = useDispatch();
   const handleLink = () => {
-    dispatch(setCurrentOnboardingStep(currentOnboardingStep+1));
-  }
+    dispatch(setCurrentOnboardingStep(currentOnboardingStep + 1));
+  };
   return (
-    <Flex
-      vertical
-      style={{
-        backgroundColor: "#fefefe",
-        padding: "32px",
-        borderRadius: "10px",
-        borderBottom: "3px solid #eee",
-        width: "400px",
-      }}
-      align="center"
-    >
+    <>
       <Title level={3} style={{ fontWeight: "bold" }}>
         Connect Your Bank Account
       </Title>
@@ -34,7 +24,7 @@ const LinkBank: React.FC = () => {
           textAlign: "center",
           marginTop: 0,
           marginBottom: "32px",
-          padding: "16px"
+          padding: "16px",
         }}
       >
         Let MoneyBot analyze your finances and provide personalized
@@ -141,7 +131,7 @@ const LinkBank: React.FC = () => {
         We use Plaid to securely connect to your bank. Your credentials are
         never stored.
       </p>
-    </Flex>
+    </>
   );
 };
 

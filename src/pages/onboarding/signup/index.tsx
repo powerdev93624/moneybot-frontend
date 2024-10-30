@@ -7,23 +7,13 @@ import { setCurrentOnboardingStep } from "@/store/slices/AppSlice";
 const { Title } = Typography;
 const SignUp: React.FC = () => {
   const [form] = Form.useForm();
-  const {currentOnboardingStep} = useSelector((state:any) => state.app);
+  const { currentOnboardingStep } = useSelector((state: any) => state.app);
   const dispatch = useDispatch();
   const handleSignUp = () => {
-    dispatch(setCurrentOnboardingStep(currentOnboardingStep+1));
-  }
+    dispatch(setCurrentOnboardingStep(currentOnboardingStep + 1));
+  };
   return (
-    <Flex
-      vertical
-      style={{
-        backgroundColor: "#fefefe",
-        padding: "32px",
-        borderRadius: "10px",
-        borderBottom: "3px solid #eee",
-        width: "400px",
-      }}
-      align="center"
-    >
+    <>
       <Title level={3} style={{ fontWeight: "bold" }}>
         Create Your Account
       </Title>
@@ -31,7 +21,11 @@ const SignUp: React.FC = () => {
         Join thousands of people who've already improved their financial future
         with MoneyBot's personalized AI guidance.
       </p>
-      <Form layout={"vertical"} form={form} style={{ width: "100%", marginTop: "32px" }}>
+      <Form
+        layout={"vertical"}
+        form={form}
+        style={{ width: "100%", marginTop: "32px" }}
+      >
         <Form.Item
           label={
             <h5
@@ -120,7 +114,7 @@ const SignUp: React.FC = () => {
       <p style={{ fontSize: "15px", margin: "1px 0 0 0" }}>
         📱 Daily tips via text message
       </p>
-    </Flex>
+    </>
   );
 };
 

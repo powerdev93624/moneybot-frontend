@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+	<g transform="translate(600, 0)">
+    <circle cx="100" cy="100" r="70" fill="#F3E5F5"/>
+    <!-- Pencil and path symbolizing creating your own way -->
+    <path d="M60 120 C80 80, 120 140, 140 80" stroke="#7B1FA2" stroke-width="4" fill="none" stroke-dasharray="5,5"/>
+    <path d="M70 90 L120 90 L110 80 L120 90 L110 100" fill="none" stroke="#7B1FA2" stroke-width="3"/>
+    <!-- Compass points -->
+    <circle cx="100" cy="100" r="25" fill="none" stroke="#7B1FA2" stroke-width="2"/>
+    <path d="M100 80 L100 120 M80 100 L120 100" stroke="#7B1FA2" stroke-width="2"/>
+    <text x="100" y="150" font-family="Arial" font-size="12" fill="#7B1FA2" text-anchor="middle">CUSTOM</text>
+  </g>
+</svg>

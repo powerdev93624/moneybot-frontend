@@ -5,7 +5,7 @@ import { GREEN_COLOR, LIGHT_GREEN_COLOR } from "@/constants";
 
 const OnboardingStep: React.FC = () => {
   const { currentOnboardingStep } = useSelector((state: any) => state.app);
-  const onboardingStepArray: readonly number[] = [1, 2, 3];
+  const onboardingStepArray: readonly number[] = [1, 2, 3, 4];
   console.log(currentOnboardingStep);
 
   return (
