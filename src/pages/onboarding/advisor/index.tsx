@@ -8,7 +8,7 @@ import {
   DaveramseyIcon,
   MyownadvisorIcon,
 } from "@/assets/images";
-import { GREEN_COLOR, HEAVY_GREEN_COLOR, LIGHT_GREEN_COLOR } from "@/constants";
+import { GREEN_COLOR, LIGHT_GREEN_COLOR } from "@/constants";
 import { setCurrentOnboardingStep } from "@/store/slices/AppSlice";
 
 const { Title } = Typography;

@@ -13,7 +13,7 @@ const headerStyle: React.CSSProperties = {
 
 const contentStyle: React.CSSProperties = {
   textAlign: "center",
-  marginTop: "100px",
+  marginTop: "4vw",
   backgroundColor: "#f5f5f5"
 };
 

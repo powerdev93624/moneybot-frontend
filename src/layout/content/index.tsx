@@ -14,21 +14,22 @@ const { Title } = Typography;
 const AppContent: React.FC = () => {
 	const navigate = useNavigate();
   return (
-    <Flex vertical justify="space-between" gap="170px">
-      <Flex vertical justify="center" align="center" gap="large">
-        <Title style={{ fontWeight: "bold", fontSize: "50px" }}>
+    <Flex vertical justify="space-between" gap="10vw">
+      <Flex vertical justify="center" align="center" gap="0">
+        <Title style={{ fontWeight: "bold", fontSize: "36px" }}>
           Your Personal AI Financial Advisor
         </Title>
         <Title
           style={{
-            fontSize: "1.25rem",
+            fontSize: "18px",
             lineHeight: "1.75rem",
             color: "rgb(75 85 99)",
             marginTop: "0px",
             marginLeft: "auto",
             marginRight: "auto",
-            marginBottom: "3rem",
-						maxWidth: "700px"
+            marginBottom: "4vw",
+						maxWidth: "700px",
+            padding: "0 32px"
           }}
         >
           Get personalized financial advice, automated savings, and smart
@@ -40,9 +41,8 @@ const AppContent: React.FC = () => {
           style={{
             borderRadius: "90px",
             fontSize: "1.125rem",
-            lineHeight: "1.75rem",
             fontWeight: "500",
-            padding: "28px 32px ",
+            padding: "23px 28px ",
             backgroundColor: GREEN_COLOR,
           }}
 					onClick={() => {navigate("/onboarding")}}
@@ -50,7 +50,7 @@ const AppContent: React.FC = () => {
           Start Your Financial Journey
         </Button>
       </Flex>
-      <Flex justify="space-around" gap="large" className="introduction">
+      <Flex justify="space-around" gap="large" className="introduction" >
         <Flex
           vertical
           align="center"

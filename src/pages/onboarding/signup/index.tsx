@@ -1,15 +1,25 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Flex, Button, Form, Input, Typography } from "antd";
+import { Button, Flex, Form, Input, Typography } from "antd";
+import { Rule } from "antd/es/form";
+import PhoneInput from "antd-phone-input";
 import { GREEN_COLOR } from "@/constants";
 import { setCurrentOnboardingStep } from "@/store/slices/AppSlice";
 
 const { Title } = Typography;
+const validator: (rule: Rule, value: any) => Promise<void> = (_, { valid }) => {
+  // if (valid(true)) return Promise.resolve(); // strict validation
+  if (valid()) return Promise.resolve(); // non-strict validation
+  return Promise.reject("Invalid phone number");
+};
+
 const SignUp: React.FC = () => {
   const [form] = Form.useForm();
   const { currentOnboardingStep } = useSelector((state: any) => state.app);
   const dispatch = useDispatch();
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
+    const values = await form.validateFields();
+    console.log(values);
     dispatch(setCurrentOnboardingStep(currentOnboardingStep + 1));
   };
   return (
@@ -22,11 +32,22 @@ const SignUp: React.FC = () => {
         with MoneyBot's personalized AI guidance.
       </p>
       <Form
+        name="signup-form"
         layout={"vertical"}
         form={form}
         style={{ width: "100%", marginTop: "32px" }}
       >
         <Form.Item
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: "Please input your username!",
+            },
+          ]}
+          style={{
+            marginBottom: "12px",
+          }}
           label={
             <h5
               style={{
@@ -39,9 +60,14 @@ const SignUp: React.FC = () => {
             </h5>
           }
         >
-          <Input placeholder="" style={{ fontSize: "20px" }} />
+          <Input placeholder="" />
         </Form.Item>
         <Form.Item
+          name="email"
+          rules={[
+            { required: true, message: "Please input your email." },
+            { type: "email", message: "Please input a valid email!" },
+          ]}
           label={
             <h5
               style={{
@@ -57,6 +83,11 @@ const SignUp: React.FC = () => {
           <Input placeholder="" style={{ fontSize: "20px" }} />
         </Form.Item>
         <Form.Item
+          name="phone"
+          rules={[
+            { required: true, message: "Please input your phone number." },
+            { validator }
+          ]}
           label={
             <h5
               style={{
@@ -69,9 +100,15 @@ const SignUp: React.FC = () => {
             </h5>
           }
         >
-          <Input placeholder="" style={{ fontSize: "20px" }} />
+          {/* <Input
+            placeholder=""
+            style={{ fontSize: "20px" }}
+          /> */}
+          <PhoneInput placeholder="+1 (111) 111 1111" enableSearch />
         </Form.Item>
         <Form.Item
+          name="password"
+          rules={[{ required: true }]}
           label={
             <h5
               style={{
@@ -84,11 +121,12 @@ const SignUp: React.FC = () => {
             </h5>
           }
         >
-          <Input placeholder="" style={{ fontSize: "20px" }} />
+          <Input.Password placeholder="" style={{ fontSize: "20px" }} />
         </Form.Item>
         <Form.Item>
           <Button
             type="primary"
+            htmlType="submit"
             style={{
               width: "100%",
               backgroundColor: GREEN_COLOR,
@@ -102,18 +140,22 @@ const SignUp: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-      <p style={{ fontSize: "14px", marginBottom: "8px" }}>
-        By signing up, you'll get:
-      </p>
-      <p style={{ fontSize: "15px", margin: "1px 0 0 0" }}>
-        ✨ Personalized financial insights
-      </p>
-      <p style={{ fontSize: "15px", margin: "1px 0 0 0" }}>
-        💡 AI-powered investment recommendations
-      </p>
-      <p style={{ fontSize: "15px", margin: "1px 0 0 0" }}>
-        📱 Daily tips via text message
-      </p>
+      <Flex vertical>
+        <p
+          style={{ fontSize: "14px", marginBottom: "8px", paddingLeft: "8px" }}
+        >
+          By signing up, you'll get:
+        </p>
+        <p style={{ fontSize: "15px", margin: "1px 0 0 0" }}>
+          ✨ Personalized financial insights
+        </p>
+        <p style={{ fontSize: "15px", margin: "1px 0 0 0" }}>
+          💡 AI-powered investment recommendations
+        </p>
+        <p style={{ fontSize: "15px", margin: "1px 0 0 0" }}>
+          📱 Daily tips via text message
+        </p>
+      </Flex>
     </>
   );
 };

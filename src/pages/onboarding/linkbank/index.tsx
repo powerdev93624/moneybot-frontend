@@ -15,7 +15,7 @@ const LinkBank: React.FC = () => {
   };
   return (
     <>
-      <Title level={3} style={{ fontWeight: "bold" }}>
+      <Title level={3} style={{ fontWeight: "bold", textAlign: "center" }}>
         Connect Your Bank Account
       </Title>
       <p
