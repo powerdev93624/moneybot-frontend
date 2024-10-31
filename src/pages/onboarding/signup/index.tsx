@@ -1,29 +1,56 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Button, Flex, Form, Input, Typography } from "antd";
+import { Button, Flex, Form, Input, Typography, notification } from "antd";
+import type { NotificationArgsProps } from 'antd';
 import { Rule } from "antd/es/form";
 import PhoneInput from "antd-phone-input";
 import { GREEN_COLOR } from "@/constants";
 import { setCurrentOnboardingStep } from "@/store/slices/AppSlice";
+import { apis } from "@/apis";
 
 const { Title } = Typography;
+type NotificationPlacement = NotificationArgsProps['placement'];
 const validator: (rule: Rule, value: any) => Promise<void> = (_, { valid }) => {
   // if (valid(true)) return Promise.resolve(); // strict validation
   if (valid()) return Promise.resolve(); // non-strict validation
   return Promise.reject("Invalid phone number");
 };
 
+const Context = React.createContext({ name: 'Default' });
+
+
 const SignUp: React.FC = () => {
+  const [api, contextHolder] = notification.useNotification();
+  const contextValue = useMemo(() => ({ name: 'Ant Design' }), []);
   const [form] = Form.useForm();
   const { currentOnboardingStep } = useSelector((state: any) => state.app);
   const dispatch = useDispatch();
+  const openNotification = (placement: NotificationPlacement) => {
+    api.info({
+      message: `Notification ${placement}`,
+      description: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
+      placement,
+    });
+  };
   const handleSignUp = async () => {
-    const values = await form.validateFields();
-    console.log(values);
-    dispatch(setCurrentOnboardingStep(currentOnboardingStep + 1));
+    try {
+      const values = await form.validateFields();
+      const response:any = await apis.signup(values);
+      if (response.status) {
+        dispatch(setCurrentOnboardingStep(currentOnboardingStep + 1));
+        openNotification("topLeft");
+      } else {
+        // Handle login error
+        console.error('Signup failed');
+      }
+    } catch (error) {
+      console.error('Signup failed:', error);
+    }
   };
   return (
-    <>
+    <Context.Provider value={contextValue}>
+      {contextHolder}
+      <>
       <Title level={3} style={{ fontWeight: "bold" }}>
         Create Your Account
       </Title>
@@ -157,6 +184,8 @@ const SignUp: React.FC = () => {
         </p>
       </Flex>
     </>
+    </Context.Provider>
+    
   );
 };
 
